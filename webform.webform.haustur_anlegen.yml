@@ -1,0 +1,563 @@
+uuid: 9782d16b-5dae-48b0-8c63-f74fc3459e22
+langcode: en
+status: open
+dependencies:
+  module:
+    - webform_civicrm
+weight: 0
+open: null
+close: null
+uid: null
+template: false
+archive: false
+id: haustur_anlegen
+title: 'Haustür anlegen'
+description: ''
+categories: {  }
+elements: |-
+  civicrm_1_contact_1_fieldset_fieldset:
+    '#type': fieldset
+    '#title': 'Klingelnde r'
+    '#title_display': invisible
+    '#access': false
+    '#form_key': civicrm_1_contact_1_fieldset_fieldset
+    civicrm_1_contact_1_contact_existing:
+      '#type': civicrm_contact
+      '#title': 'Existing Contact'
+      '#widget': hidden
+      '#none_prompt': '- None Found -'
+      '#results_display':
+        display_name: display_name
+      '#access': false
+      '#default': user
+      '#allow_url_autofill': false
+      '#contact_type': individual
+      '#form_key': civicrm_1_contact_1_contact_existing
+      '#parent': civicrm_1_contact_1_fieldset_fieldset
+      '#extra': {  }
+  civicrm_2_contact_1_fieldset_fieldset:
+    '#type': fieldset
+    '#title': 'neue tuer'
+    '#title_display': invisible
+    '#access_update_roles':
+      - authenticated
+    '#access_view_roles':
+      - administrator
+    '#form_key': civicrm_2_contact_1_fieldset_fieldset
+    civicrm_2_contact_1_address_street_address:
+      '#type': textfield
+      '#counter_type': character
+      '#counter_maximum': 96
+      '#counter_maximum_message': ' '
+      '#extra':
+        width: 60
+      '#form_key': civicrm_2_contact_1_address_street_address
+      '#parent': civicrm_2_contact_1_fieldset_fieldset
+      '#title': 'Street Address'
+      '#required': true
+    civicrm_2_contact_1_address_city:
+      '#type': textfield
+      '#title': City
+      '#counter_type': character
+      '#counter_maximum': 64
+      '#counter_maximum_message': ' '
+      '#default_value': Brühl
+      '#access': false
+      '#extra':
+        width: 20
+      '#form_key': civicrm_2_contact_1_address_city
+      '#parent': civicrm_2_contact_1_fieldset_fieldset
+    civicrm_2_contact_1_address_postal_code:
+      '#type': textfield
+      '#title': 'Postal Code'
+      '#counter_type': character
+      '#counter_maximum': 64
+      '#counter_maximum_message': ' '
+      '#default_value': '50321'
+      '#access': false
+      '#extra':
+        width: 7
+      '#form_key': civicrm_2_contact_1_address_postal_code
+      '#parent': civicrm_2_contact_1_fieldset_fieldset
+    civicrm_2_contact_1_address_supplemental_address_1:
+      '#type': textfield
+      '#title': Adresszusatz
+      '#counter_type': character
+      '#counter_maximum': 96
+      '#counter_maximum_message': ' '
+      '#extra':
+        width: 60
+      '#form_key': civicrm_2_contact_1_address_supplemental_address_1
+      '#parent': civicrm_2_contact_1_fieldset_fieldset
+    civicrm_2_contact_1_contact_household_name:
+      '#type': textfield
+      '#title': 'Household Name'
+      '#counter_type': character
+      '#counter_maximum': 128
+      '#counter_maximum_message': ' '
+      '#default_value': platzhalter
+      '#access': false
+      '#contact_type': household
+      '#form_key': civicrm_2_contact_1_contact_household_name
+      '#extra':
+        width: 20
+      '#parent': civicrm_2_contact_1_fieldset_fieldset
+  civicrm_2_contact_1_cg2_fieldset:
+    '#type': fieldset
+    '#title': Status
+    '#title_display': invisible
+    '#form_key': civicrm_2_contact_1_cg2_fieldset
+    civicrm_2_contact_1_cg2_custom_4:
+      '#type': date
+      '#title': 'Datum Aktion'
+      '#default_value': today
+      '#date_date_min': '-2 months'
+      '#date_date_max': '+0 days'
+      '#data_type': Date
+      '#extra':
+        description: 'Datum, wann an Haustür geklingelt wurde'
+        description_above: 1
+      '#has_help': true
+      '#form_key': civicrm_2_contact_1_cg2_custom_4
+      '#parent': civicrm_2_contact_1_cg2_fieldset
+    civicrm_2_contact_1_cg2_custom_5:
+      '#type': civicrm_options
+      '#required': true
+      '#data_type': String
+      '#extra':
+        description: 'Bitte auswählen ob geklingelt wurde.'
+        description_above: 0
+        aslist: 1
+        items: |-
+          2|Gespräch geführt
+          3|Flyer eingeworfen
+          4|Keine Aktion
+      '#has_help': true
+      '#form_key': civicrm_2_contact_1_cg2_custom_5
+      '#options':
+        2: 'Gespräch geführt'
+        3: 'Flyer eingeworfen'
+        4: 'Keine Aktion'
+      '#parent': civicrm_2_contact_1_cg2_fieldset
+      '#title': Status
+      '#civicrm_live_options': 1
+    civicrm_2_contact_1_cg2_custom_11:
+      '#type': civicrm_options
+      '#title': Stimmung
+      '#empty_option': 'nicht definiert'
+      '#civicrm_live_options': 0
+      '#options':
+        1: Positiv
+        2: Neutral
+        3: Negativ
+      '#extra':
+        aslist: 1
+        multiple: 0
+      '#data_type': String
+      '#form_key': civicrm_2_contact_1_cg2_custom_11
+      '#parent': civicrm_2_contact_1_cg2_fieldset
+      '#default_option': ''
+      '#default_value': ''
+    civicrm_2_contact_1_cg2_custom_14:
+      '#type': textfield
+      '#data_type': Int
+      '#counter_type': character
+      '#counter_maximum': 255
+      '#counter_maximum_message': ' '
+      '#form_key': civicrm_2_contact_1_cg2_custom_14
+      '#extra':
+        width: 20
+      '#parent': civicrm_2_contact_1_cg2_fieldset
+      '#title': Status-Marker
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#access_create_roles':
+      - authenticated
+    '#access_update_roles':
+      - content_editor
+      - administrator
+    '#access_view_roles':
+      - authenticated
+    '#submit__label': Speichern
+    '#update_hide': true
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: /doors-create
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: false
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_file_limit_message: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns:
+    - serial
+    - created
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: true
+  autofill_message: ''
+  autofill_excluded_elements:
+    civicrm_1_contact_1_contact_existing: civicrm_1_contact_1_contact_existing
+    civicrm_2_contact_1_address_city: civicrm_2_contact_1_address_city
+    civicrm_2_contact_1_address_postal_code: civicrm_2_contact_1_address_postal_code
+    civicrm_2_contact_1_address_supplemental_address_1: civicrm_2_contact_1_address_supplemental_address_1
+    civicrm_2_contact_1_contact_household_name: civicrm_2_contact_1_contact_household_name
+    civicrm_2_contact_1_cg2_custom_4: civicrm_2_contact_1_cg2_custom_4
+  wizard_progress_bar: false
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: message
+  confirmation_url: ''
+  confirmation_title: Super!
+  confirmation_message: '<p>Du hast die Haustür erfolgreich angelegt.</p>'
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: 50000
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: 10000
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - content_editor
+      - administrator
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - content_editor
+      - administrator
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - content_editor
+      - administrator
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - content_editor
+      - administrator
+    users: {  }
+    permissions: {  }
+  administer:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+handlers:
+  webform_civicrm:
+    id: webform_civicrm
+    handler_id: webform_civicrm
+    label: CiviCRM
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: null
+    settings:
+      nid: 1
+      number_of_contacts: '2'
+      1_contact_type: individual
+      1_webform_label: klingelnde
+      civicrm_1_contact_1_contact_contact_sub_type:
+        '': ''
+      civicrm_1_contact_1_contact_existing: create_civicrm_webform_element
+      civicrm_1_contact_1_contact_first_name: 0
+      civicrm_1_contact_1_contact_last_name: 0
+      civicrm_1_contact_1_contact_nick_name: 0
+      civicrm_1_contact_1_contact_gender_id: 0
+      civicrm_1_contact_1_contact_job_title: 0
+      civicrm_1_contact_1_contact_birth_date: 0
+      civicrm_1_contact_1_contact_preferred_communication_method: 0
+      civicrm_1_contact_1_contact_privacy: 0
+      civicrm_1_contact_1_contact_preferred_language: 0
+      civicrm_1_contact_1_contact_communication_style_id: 0
+      civicrm_1_contact_1_contact_contact_id: 0
+      civicrm_1_contact_1_contact_user_id: 0
+      civicrm_1_contact_1_contact_external_identifier: 0
+      civicrm_1_contact_1_contact_source: 0
+      civicrm_1_contact_1_contact_cs: 0
+      civicrm_1_contact_1_contact_employer_id: 0
+      civicrm_1_contact_1_contact_is_deceased: 0
+      civicrm_1_contact_1_contact_deceased_date: 0
+      contact_1_settings_matching_rule: '0'
+      contact_1_number_of_other: '0'
+      contact_1_number_of_address: '0'
+      contact_1_number_of_phone: '0'
+      contact_1_number_of_email: '0'
+      contact_1_number_of_website: '0'
+      contact_1_number_of_im: '0'
+      2_contact_type: household
+      2_webform_label: door
+      civicrm_2_contact_1_contact_contact_sub_type: {  }
+      civicrm_2_contact_1_contact_existing: 0
+      civicrm_2_contact_1_contact_household_name: create_civicrm_webform_element
+      civicrm_2_contact_1_contact_nick_name: 0
+      civicrm_2_contact_1_contact_preferred_communication_method: 0
+      civicrm_2_contact_1_contact_privacy: 0
+      civicrm_2_contact_1_contact_preferred_language: 0
+      civicrm_2_contact_1_contact_communication_style_id: 0
+      civicrm_2_contact_1_contact_contact_id: 0
+      civicrm_2_contact_1_contact_user_id: 0
+      civicrm_2_contact_1_contact_external_identifier: 0
+      civicrm_2_contact_1_contact_source: 0
+      civicrm_2_contact_1_contact_cs: 0
+      contact_2_settings_matching_rule: '8'
+      contact_2_number_of_cg2: '1'
+      civicrm_2_contact_1_cg2_custom_4: create_civicrm_webform_element
+      civicrm_2_contact_1_cg2_custom_5: create_civicrm_webform_element
+      civicrm_2_contact_1_cg2_custom_11: create_civicrm_webform_element
+      civicrm_2_contact_1_cg2_custom_12: '1'
+      civicrm_2_contact_1_cg2_custom_14: create_civicrm_webform_element
+      civicrm_2_contact_1_cg2_createmode: '1'
+      contact_2_number_of_other: '0'
+      contact_2_number_of_address: '1'
+      civicrm_2_contact_1_address_street_address: create_civicrm_webform_element
+      civicrm_2_contact_1_address_street_name: 0
+      civicrm_2_contact_1_address_street_number: 0
+      civicrm_2_contact_1_address_street_unit: 0
+      civicrm_2_contact_1_address_name: 0
+      civicrm_2_contact_1_address_supplemental_address_1: create_civicrm_webform_element
+      civicrm_2_contact_1_address_supplemental_address_2: 0
+      civicrm_2_contact_1_address_supplemental_address_3: 0
+      civicrm_2_contact_1_address_city: create_civicrm_webform_element
+      civicrm_2_contact_1_address_postal_code: create_civicrm_webform_element
+      civicrm_2_contact_1_address_postal_code_suffix: 0
+      civicrm_2_contact_1_address_country_id: 0
+      civicrm_2_contact_1_address_state_province_id: 0
+      civicrm_2_contact_1_address_county_id: 0
+      civicrm_2_contact_1_address_master_id: 0
+      civicrm_2_contact_1_address_location_type_id: '1'
+      civicrm_2_contact_1_address_is_primary: '1'
+      contact_2_number_of_phone: '0'
+      contact_2_number_of_email: '0'
+      contact_2_number_of_website: '0'
+      contact_2_number_of_im: '0'
+      contact_2_number_of_relationship: '0'
+      prefix_known: ''
+      prefix_unknown: ''
+      toggle_message: 0
+      message: ''
+      activity_number_of_activity: '0'
+      participant_reg_type: '0'
+      reg_options:
+        event_type:
+          any: any
+        show_past_events: now
+        show_future_events: '1'
+        show_public_events: all
+        title_display: title
+        show_full_events: 1
+        event_sort_field: start_date
+        show_remaining: '0'
+        validate: 1
+        block_form: 0
+        disable_unregister: 0
+        allow_url_load: 0
+        disable_primary_participant: 0
+      checksum_text: ''
+      create_fieldsets: 1
+      confirm_subscription: 1
+      block_unknown_users: 0
+      create_new_relationship: 0
+      disable_contact_paging: 0
+      new_contact_source: 'Haustür anlegen'
+      data:
+        contact:
+          1:
+            contact:
+              1:
+                contact_type: individual
+                contact_sub_type: {  }
+                webform_label: klingelnde
+            matching_rule: '0'
+            number_of_other: '0'
+            number_of_address: '0'
+            number_of_phone: '0'
+            number_of_email: '0'
+            number_of_website: '0'
+            number_of_im: '0'
+          2:
+            contact:
+              1:
+                contact_type: household
+                contact_sub_type: {  }
+                webform_label: door
+            matching_rule: '8'
+            number_of_cg2: '1'
+            number_of_other: '0'
+            number_of_address: '1'
+            number_of_phone: '0'
+            number_of_email: '0'
+            number_of_website: '0'
+            number_of_im: '0'
+            number_of_relationship: '0'
+            cg2:
+              1:
+                custom_12: '1'
+            address:
+              1:
+                location_type_id: '1'
+                is_primary: '1'
+        activity:
+          number_of_activity: '0'
+        participant_reg_type: '0'
+        reg_options:
+          event_type:
+            any: any
+          show_past_events: now
+          show_future_events: '1'
+          show_public_events: all
+          title_display: title
+          show_full_events: 1
+          event_sort_field: start_date
+          show_remaining: '0'
+          validate: 1
+          block_form: 0
+          disable_unregister: 0
+          allow_url_load: 0
+          disable_primary_participant: 0
+        config:
+          create_mode:
+            civicrm_2_contact_1_cg2_createmode: '1'
+variants: {  }
